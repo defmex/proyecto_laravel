@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePersonaRequest;
 use App\Http\Requests\UpdatePersonaRequest;
 
+
 class PersonaController extends Controller
 {
     /**
@@ -66,19 +67,18 @@ class PersonaController extends Controller
      */
     public function edit($id)
     {
-        $persona = Persona::find($id);
-        return view('persona.edit', compact('persona'));
+     //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePersonaRequest $request, string $id)
     {
         $persona = Persona::find($id);
-        /*$persona->nombre = $request->input('nombre');
-        $persona->fecha_nacimiento = $request->input('fecha_nacimiento');*/
-        $persona->update($request->all());
+        $persona->nombre = $request->input('nombre');
+        $persona->fecha_nacimiento = $request->input('fecha_nacimiento');
+        //$persona->update($request->all());
         $persona->save();
         return redirect()->route('persona.index')
             ->with('success', 'Post updated successfully.');

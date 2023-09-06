@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaController;
+use App\Http\Resources\Persona;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::post('/persona/{id}', [PersonaController::class, 'edit']);
-Route::post('/persona/{id}', [PersonaController::class, 'update']);
+Route::put('/persona/{id}', [PersonaController::class, 'edit']);
+Route::put('/persona/{id}', [PersonaController::class, 'update']);
 Route::get('/persona/{id}', [PersonaController::class, 'get']);
 Route::resource('persona', PersonaController::class);
