@@ -24,3 +24,4 @@ Route::put('/persona/{id}', [PersonaController::class, 'edit']);
 Route::put('/persona/{id}', [PersonaController::class, 'update']);
 Route::get('/persona/{id}', [PersonaController::class, 'get']);
 Route::resource('persona', PersonaController::class);
+//esta es una prueba para ver las ramas
